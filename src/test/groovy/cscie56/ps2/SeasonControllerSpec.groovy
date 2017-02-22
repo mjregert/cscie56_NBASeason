@@ -10,9 +10,7 @@ class SeasonControllerSpec extends Specification {
     def populateValidParams(params) {
         assert params != null
 
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
-        assert false, "TODO: Provide a populateValidParams() implementation for this generated test suite"
+        params << [name:'2017', startDate: new Date(), endDate: new Date()]
     }
 
     void "Test the index action returns the correct model"() {

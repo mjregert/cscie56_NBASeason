@@ -17,9 +17,29 @@ class SeasonSpec extends Specification {
     def cleanup() {
     }
 
+    void "Test that a Season created with all attributes is valid" () {
+        when:
+        Season s1 = new Season(name: '2017', startDate: new Date(), endDate: new Date())
+        s1.save(flush: true)
+        then:
+        s1.validate()
+    }
+
+    //-------------------------------------------------------------------
+
     void "Test that a Season created with no attributes is invalid" () {
         when:
         Season s1 = new Season()
+        s1.save(flush: true)
+        then:
+        !s1.validate()
+    }
+
+    //-------------------------------------------------------------------
+
+    void "Test that a Season created with no name is invalid" () {
+        when:
+        Season s1 = new Season(startDate: new Date(), endDate: new Date())
         s1.save(flush: true)
         then:
         !s1.validate()
