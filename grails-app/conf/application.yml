@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: cscie56_ps2
+        defaultPackage: cscie56_NBASeason
     spring:
         transactionManagement:
             proxies: false

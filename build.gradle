@@ -11,7 +11,7 @@ buildscript {
 }
 
 version "0.1"
-group "cscie56_ps2"
+group "cscie56_NBASeason"
 
 apply plugin:"eclipse"
 apply plugin:"idea"

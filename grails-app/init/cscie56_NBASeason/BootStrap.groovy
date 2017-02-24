@@ -1,7 +1,6 @@
-package cscie56_ps2
+package cscie56_NBASeason
 
 import cscie56.ps2.Conference
-import cscie56.ps2.Game
 import cscie56.ps2.League
 import cscie56.ps2.Season
 import cscie56.ps2.Team

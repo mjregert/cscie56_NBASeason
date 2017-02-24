@@ -1,4 +1,4 @@
-package cscie56_ps2
+package cscie56_NBASeason
 
 class UrlMappings {
 
