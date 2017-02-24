@@ -4,6 +4,7 @@ class Game {
 
 //    Date dateTime
 //    String location
+    GameVenue venue
     Team homeTeam
 //    Team awayTeam
 //    int homeTeamScore

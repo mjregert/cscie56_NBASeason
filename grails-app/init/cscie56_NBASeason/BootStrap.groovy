@@ -1,7 +1,9 @@
 package cscie56_NBASeason
 
 import cscie56.ps2.Conference
+import cscie56.ps2.Game
 import cscie56.ps2.League
+import cscie56.ps2.Person
 import cscie56.ps2.Season
 import cscie56.ps2.Team
 
@@ -31,14 +33,28 @@ class BootStrap {
         def easternConfTeams = []
 
         for (int i=0; i<westernConfTeamNames.size(); i++) {
-            Team team = new Team(name: westernConfTeamNames[i], conference: wc, games: [])
+            Team team = new Team(name: westernConfTeamNames[i], conference: wc, games: [], people: [])
             team.save(flush: true)
+
+            for (int j=1; j< 16; j++) {
+                Person p = new Person(firstName: 'Michael', lastName: 'Jones' + j, role: 'PLAYER', team: team)
+                p.save(flush: true)
+            }
+
+            for (int k=1; k<=4; k++) {
+                Person c = new Person(firstName: 'Bob', lastName: 'Smith' + k, role: 'COACH', team: team)
+                c.save(flush: true)
+            }
+
             westernConfTeams << team
         }
 
         for (int i=0; i<easternConfTeamNames.size(); i++) {
             Team team = new Team(name: easternConfTeamNames[i], conference: ec, games: [])
             team.save(flush: true)
+            // Testing game here
+            Game g = new Game(homeTeam: team, venue: 'HOME')
+            g.save(flush: true)
             easternConfTeams << team
         }
 
@@ -48,11 +64,11 @@ class BootStrap {
         ec.save()
         wc.save()
 
+
 /*
         // Loop through each conference
         l.conferences.each {
             for (int i=0; i<it.teams.size(); i++) {
-                def games = []
                 Team team1 = it.teams[i]
                 Game game = new Game(homeTeam: team1)
                 game.save(flush: true)
