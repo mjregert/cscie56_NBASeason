@@ -19,7 +19,7 @@ class TeamSpec extends Specification {
 
     void "Test that a Team created with all attributes is valid" () {
         when:
-        Team t1 = new Team(name: 'Jazz', people: [new Person(firstName: 'first', lastName: 'last', role: 'Player')])
+        Team t1 = new Team(name: 'Jazz', people: [new Person(firstName: 'first', lastName: 'last', role: 'PLAYER')])
         t1.save(flush: true)
         then:
         t1.validate()
@@ -43,7 +43,7 @@ class TeamSpec extends Specification {
         for (int i=0; i<90; i++) {
             games << new Game()
         }
-        Team t1 = new Team(name: 'Jazz', people: [new Person(firstName: 'first', lastName: 'last', role: 'Player')], games: games)
+        Team t1 = new Team(name: 'Jazz', people: [new Person(firstName: 'first', lastName: 'last', role: 'PLAYER')], games: games)
         t1.save(flush: true)
         then:
         !t1.validate()

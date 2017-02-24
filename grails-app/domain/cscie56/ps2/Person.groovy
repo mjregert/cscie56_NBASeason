@@ -3,9 +3,9 @@ package cscie56.ps2
 class Person {
     String firstName
     String lastName
-    String role
 
     static transients = ['fullName']
+    static hasOne = [role : PersonRole]
 
     String getFullName() {
         "$firstName $lastName"
@@ -17,6 +17,6 @@ class Person {
         firstName blank: false, nullable: false
         lastName blank: false, nullable: false
         team nullable: false
-        role nullable: false, inList: ['Coach','Player']
+        role nullable: false
     }
 }

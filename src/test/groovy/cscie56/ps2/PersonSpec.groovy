@@ -57,7 +57,7 @@ class PersonSpec extends Specification {
 
     void "Test that a Person created with no team is invalid" () {
         when:
-        Person p1 = new Person(firstName: 'Larry', lastName: 'Bird',  role: 'Player')
+        Person p1 = new Person(firstName: 'Larry', lastName: 'Bird',  role: 'PLAYER')
         p1.save(flush:true)
         then:
         !p1.validate()
@@ -67,7 +67,7 @@ class PersonSpec extends Specification {
 
     void "Test that 'Player' is a valid role" () {
         when:
-        Person p1 = new Person(firstName: 'Larry', lastName: 'Bird', role: 'Player', team: new Team())
+        Person p1 = new Person(firstName: 'Larry', lastName: 'Bird', role: 'PLAYER', team: new Team())
         p1.save(flush:true)
         then:
         p1.validate()
@@ -77,7 +77,7 @@ class PersonSpec extends Specification {
 
     void "Test that 'Coach' is a valid role" () {
         when:
-        Person p1 = new Person(firstName: 'Larry', lastName: 'Brown', role: 'Coach', team: new Team())
+        Person p1 = new Person(firstName: 'Larry', lastName: 'Brown', role: 'COACH', team: new Team())
         p1.save(flush:true)
         then:
         p1.validate()
@@ -87,7 +87,7 @@ class PersonSpec extends Specification {
 
     void "Test that 'Ref' is an invalid valid role" () {
         when:
-        Person p1 = new Person(firstName: 'Larry', lastName: 'Smith', role: 'Ref', team: new Team())
+        Person p1 = new Person(firstName: 'Larry', lastName: 'Smith', role: 'REF', team: new Team())
         p1.save(flush:true)
         then:
         !p1.validate()
