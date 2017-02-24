@@ -5,6 +5,8 @@ class Conference {
 
     static belongsTo = [league : League]
 
+    static hasMany = [teams : Team]
+
     static constraints = {
         name unique: true, nullable: false, blank: false
         league nullable: false

@@ -67,20 +67,6 @@ class SeasonSpec extends Specification {
 
     //-------------------------------------------------------------------
 
-    void "Test that a Season cannot have more than 82 games" () {
-        when:
-        def games = []
-        for (int i=0; i<90; i++) {
-            games << new Game()
-        }
-        Season s1 = new Season(name: '2017', startDate: new Date(), games: games)
-        s1.save(flush: true)
-        then:
-        !s1.validate()
-    }
-
-    //-------------------------------------------------------------------
-
     void "Test that name is unique" () {
         when:
         Season s1 = new Season(name: '2017', startDate: new Date(), endDate: new Date())
