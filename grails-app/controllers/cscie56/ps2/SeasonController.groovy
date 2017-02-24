@@ -8,6 +8,10 @@ class SeasonController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def showStandings(Season season) {
+        respond season
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Season.list(params), model:[seasonCount: Season.count()]
