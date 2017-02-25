@@ -36,12 +36,12 @@ class BootStrap {
             Team team = new Team(name: westernConfTeamNames[i], conference: wc, games: [], people: [])
             team.save(flush: true)
 
-            for (int j=1; j< 16; j++) {
+            for (int j=1; j< 4; j++) {
                 Person p = new Person(firstName: 'Michael', lastName: 'Jones' + j, role: 'PLAYER', team: team)
                 p.save(flush: true)
             }
 
-            for (int k=1; k<=4; k++) {
+            for (int k=1; k<=1; k++) {
                 Person c = new Person(firstName: 'Bob', lastName: 'Smith' + k, role: 'COACH', team: team)
                 c.save(flush: true)
             }
